@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile.dev
+      # dockerfile: Dockerfile.dep
+    expose:
+      - '8080'
+    volumes:
+      - ./app/:/go/src/app
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:15.2-alpine
+    expose:
+      - '5432'
+    env_file:
+      - .env
+    volumes:
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "psql", "--version" ]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  dbdata: null
