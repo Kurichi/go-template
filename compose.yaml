@@ -3,7 +3,6 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile.dev
-      # dockerfile: Dockerfile.dep
     expose:
       - '8080'
     volumes:
@@ -21,9 +20,9 @@ services:
       - .env
     volumes:
       - ./db/initdb.d:/docker-entrypoint-initdb.d
-      - dbdata:/var/lib/mysql
+      - dbdata:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD", "psql", "--version" ]
+      test: [ "CMD", "pg_isready" ]
       interval: 1s
       timeout: 3s
       retries: 30
