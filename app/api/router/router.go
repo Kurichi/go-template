@@ -10,7 +10,10 @@ import (
 func NewRouter() *echo.Echo {
 	e := echo.New()
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
-		Format: `[${method}] ${status} ${path} ${error}` + "\n",
+		Format: `${time_rfc3339}:[${method}] ${status} ${path} ${error}` + "\n",
+	}))
+	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
+		Level: 2,
 	}))
 	e.Use(middleware.Recover())
 
