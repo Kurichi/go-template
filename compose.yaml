@@ -1,25 +1,32 @@
 services:
   app:
     build:
-      context: ./app
+      context: .
       dockerfile: Dockerfile.dev
-    expose:
-      - '8080'
-    volumes:
-      - ./app/:/go/src/app
+    ports:
+      - '${HOST_PORT:?err}:${PORT:?err}'
     env_file:
       - .env
+    volumes:
+      - .:/go/src/app
     depends_on:
       db:
         condition: service_healthy
   db:
-    image: postgres:15.2-alpine
+    image: postgres
+    restart: always
+    hostname: ${DB_HOST:?err}
     expose:
-      - '5432'
+      - '${DB_PORT:?err}'
     env_file:
       - .env
+    environment:
+      - POSTGRES_USER=${DB_USER:?err}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:?err}
+      - POSTGRES_HOST=${DB_HOST:?err}
+      - POSTGRES_DB=${DB_NAME:?err}
+      - POSTGRES_PORT=${DB_PORT:?err}
     volumes:
-      - ./db/initdb.d:/docker-entrypoint-initdb.d
       - dbdata:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD", "pg_isready" ]
