@@ -11,7 +11,11 @@ func main() {
 	if err != nil {
 		log.Fatalf("initialize app failed: %v\n", err)
 	}
-	defer app.Close()
+	defer func() {
+		if err := app.Close(); err != nil {
+			log.Printf("close app failed: %v\n", err)
+		}
+	}()
 
 	// TODO: graceful shutdown
 	if err := app.Run(); err != nil {
