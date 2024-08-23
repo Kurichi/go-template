@@ -7,8 +7,6 @@ on:
 
 
 jobs:
-  bulid:
-    runs-on: Ubuntu-latest
   test:
     runs-on: ubuntu-latest
     steps:
