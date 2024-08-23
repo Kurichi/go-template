@@ -17,8 +17,6 @@ func main() {
 		}
 	}()
 
-	app.Run()
-
 	// TODO: graceful shutdown
 	if err := app.Run(); err != nil {
 		log.Printf("app downed: %v\n", err)
