@@ -11,10 +11,16 @@ func main() {
 	if err != nil {
 		log.Fatalf("initialize app failed: %v\n", err)
 	}
-	defer app.Close()
+	defer func() {
+		if err := app.Close(); err != nil {
+			log.Printf("close app failed: %v\n", err)
+		}
+	}()
+
+	app.Run()
 
 	// TODO: graceful shutdown
 	if err := app.Run(); err != nil {
-		log.Fatalf("app downed: %v\n", err)
+		log.Printf("app downed: %v\n", err)
 	}
 }

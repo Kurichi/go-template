@@ -1,0 +1,26 @@
+linters:
+  enable-all: false
+  disable-all: true
+  enable:
+    - errcheck
+    - errorlint
+    - gocritic
+    - gofmt
+    - goimports
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - nakedret
+    - paralleltest
+    - staticcheck
+    - unconvert
+    - unparam
+    - unused
+
+run:
+  timeout: 5m
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
