@@ -1,0 +1,19 @@
+mode: set
+github.com/Kurichi/go-template/cmd/server/main.go:9.13,11.16 2 0
+github.com/Kurichi/go-template/cmd/server/main.go:11.16,13.3 1 0
+github.com/Kurichi/go-template/cmd/server/main.go:14.2,17.34 2 0
+github.com/Kurichi/go-template/cmd/server/main.go:17.34,19.3 1 0
+github.com/Kurichi/go-template/pkg/database/db.go:24.36,40.34 5 0
+github.com/Kurichi/go-template/pkg/database/db.go:40.34,42.3 1 0
+github.com/Kurichi/go-template/pkg/database/db.go:44.2,44.21 1 0
+github.com/Kurichi/go-template/internal/app/wire_gen.go:18.36,21.16 3 0
+github.com/Kurichi/go-template/internal/app/wire_gen.go:21.16,23.3 1 0
+github.com/Kurichi/go-template/internal/app/wire_gen.go:24.2,27.16 4 0
+github.com/Kurichi/go-template/internal/app/wire_gen.go:27.16,29.3 1 0
+github.com/Kurichi/go-template/internal/app/wire_gen.go:30.2,31.17 2 0
+github.com/Kurichi/go-template/internal/app/wire_gen.go:36.61,38.2 1 0
+github.com/Kurichi/go-template/internal/app/config/config.go:7.29,11.2 1 0
+github.com/Kurichi/go-template/internal/app/config/db.go:6.30,8.2 1 0
+github.com/Kurichi/go-template/internal/app/container/app.go:18.69,24.2 1 0
+github.com/Kurichi/go-template/internal/app/container/app.go:26.33,29.2 1 0
+github.com/Kurichi/go-template/internal/app/container/app.go:31.29,35.2 1 0

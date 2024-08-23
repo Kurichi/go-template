@@ -1,0 +1,21 @@
+name: PR CI
+
+on: 
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+  bulid:
+    runs-on: Ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Run tests with coverage report output
+        run: go test ./... -coverprofile=coverage.out
+      - uses: k1LoW/octocov-action@v0

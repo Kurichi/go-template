@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG GO_VERSION=1.22
+ARG GO_VERSION=1.23.0
 
 FROM public.ecr.aws/docker/library/golang:${GO_VERSION} AS builder
 WORKDIR /app

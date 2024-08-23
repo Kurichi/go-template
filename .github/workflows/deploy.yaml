@@ -1,0 +1,9 @@
+name: Deploy
+
+on:
+  push:
+    branches: main
+
+jobs:
+  deploy:
+    runs-on: Ubuntu-latest
