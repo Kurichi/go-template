@@ -16,8 +16,9 @@ testExecutionTime:
 diff:
   datastores:
     - artifact://${GITHUB_REPOSITORY}
-body:
+comment:
   if: is_pull_request
+  deletePrevious: true
 summary:
   if: true
 report:
