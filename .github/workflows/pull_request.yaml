@@ -8,9 +8,26 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  checks: write
 
 jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        id: setup-go
+        with:
+          go-version-file: 'go.mod'
+      - name: Download Go modules
+        run: go mod download
+        if: ${{ steps.setup-go.outputs.cache-hit != 'true' }}
+      - name: Build
+        run: make build
   test:
+    name: Test and Coverage
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,3 +37,16 @@ jobs:
       - name: Run tests with coverage report output
         run: go test ./... -coverprofile=coverage.out
       - uses: k1LoW/octocov-action@v0
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        id: setup-go
+        with:
+          go-version-file: 'go.mod'
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
