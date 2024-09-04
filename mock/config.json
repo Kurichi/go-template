@@ -1,0 +1,14 @@
+{
+	"mocks": {
+		"/Users/kurichi/repos/go-template/mock/usecase/mock_usecase.go": {
+			"checksum": "MCQNkChhSiaW4tw79eUn2w==",
+			"source_checksum": "DnCgX6nt5v6G2jXLd1slUA==",
+			"mode": "SOURCE_MODE",
+			"source_mode_runner": {
+				"source": "/Users/kurichi/repos/go-template/internal/usecase/usecase.go",
+				"destination": "/Users/kurichi/repos/go-template/mock/usecase/mock_usecase.go",
+				"package": "usecase"
+			}
+		}
+	}
+}
