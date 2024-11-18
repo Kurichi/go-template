@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/Kurichi/go-template/internal/app"
+	"github.com/SAMPO-BU/sampo-server/internal/app"
 )
 
 func main() {

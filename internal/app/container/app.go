@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Kurichi/go-template/internal/app/config"
-	"github.com/Kurichi/go-template/pkg/database"
+	"github.com/SAMPO-BU/sampo-server/internal/app/config"
+	"github.com/SAMPO-BU/sampo-server/pkg/database"
 	"github.com/labstack/echo/v4"
 )
 
@@ -24,7 +24,6 @@ func NewApp(e *echo.Echo, cfg *config.Config, db *database.DB) *App {
 }
 
 func (a *App) Run() (err error) {
-
 	return a.echo.Start(fmt.Sprintf(":%d", a.cfg.Port))
 }
 

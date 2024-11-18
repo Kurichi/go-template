@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/Kurichi/go-template/internal/domain/model"
+	"github.com/SAMPO-BU/sampo-server/internal/domain/model"
 )
 
 type userUsecase struct {

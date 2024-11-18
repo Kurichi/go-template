@@ -1,4 +1,4 @@
-module github.com/Kurichi/go-template
+module github.com/SAMPO-BU/sampo-server
 
 go 1.23.0
 

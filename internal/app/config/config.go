@@ -6,6 +6,6 @@ type Config struct {
 
 func New() (*Config, error) {
 	return &Config{
-		Port: 8080,
+		Port: uint(readInt("PORT", 8080)),
 	}, nil
 }
